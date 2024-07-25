@@ -2,6 +2,7 @@ import Conversation from "../models/conversation.modle.js";
 import Message from "../models/message.model.js";
 import { getReceiverSocketId, io } from "../socket/socket.js";
 export const sendMessage = async (req, res) => {
+    //try catch
     try {
         const { message } = req.body;
         const { id: receiverId } = req.params;
