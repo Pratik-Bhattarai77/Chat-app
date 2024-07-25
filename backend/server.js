@@ -6,9 +6,8 @@ import cookieParser from "cookie-parser";
 
 //routes import
 import authRoutes from "./routes/auth.routes.js";
-import userRoutes from "./routes/user.routes.js";
 import messageRoutes from "./routes/message.routes.js";
-
+import userRoutes from "./routes/user.routes.js";
 //database import
 import connectToMongo from "./Data/connecttoMongos.js";
 import { app, server } from "./socket/socket.js";
@@ -17,8 +16,7 @@ dotenv.config();
 
 const __dirname = path.resolve();
 
-const PORT = process.env.PO
-RT || 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json()); // for parsing application/json (from req.body)
 app.use(cookieParser());
@@ -37,6 +35,5 @@ app.get("*", (req, res) => {
 
 server.listen(PORT,()=> {
     connectToMongo();
-    console.log(`server running on port ${PORT}`)
-    
+    console.log(`server running on port ${PORT}`)    
 });
